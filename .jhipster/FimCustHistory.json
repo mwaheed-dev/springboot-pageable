@@ -1,0 +1,69 @@
+{
+  "applications": ["FIM"],
+  "changelogDate": "20220404084715",
+  "clientRootFolder": "FIM",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "fim_cust_history",
+  "fields": [
+    {
+      "fieldName": "custId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "historyTs",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "clientId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "idType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "ctryCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "3"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "8"
+    },
+    {
+      "fieldName": "createdTs",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "8"
+    },
+    {
+      "fieldName": "updatedTs",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "recordStatus",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "FIM",
+  "name": "FimCustHistory",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}
