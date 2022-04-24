@@ -1,0 +1,61 @@
+application {
+  config {
+    baseName FIM,
+    applicationType microservice,
+    packageName com.scb.fimob.order,
+    authenticationType jwt,
+    prodDatabaseType mssql,    
+     buildTool maven
+  }
+  entities *
+}
+entity OrderInstHk{
+InstRefNbr String maxlength (16) required
+OrderRefNbr String maxlength(16) required
+SecurityCode String maxlength(12) required
+SecurityCcy String maxlength(3) required
+SecurityType String maxlength(1) required
+TxnType String maxlength(1) required	
+Channel String maxlength(3)
+OrderExtRefId1 String maxlength(30)
+CustId String maxlength(12)
+IsAcctNbr String maxlength(30)
+BndAcctNbr String maxlength(30) required
+InstType String maxlength(30) required
+InstStatus String maxlength(3) required
+Quantity BigDecimal max(11) required
+NewQuantity BigDecimal max(11)
+OrigIbPrice BigDecimal max(11) required
+NewIbPrice BigDecimal max(11)
+OrigClientPrice BigDecimal max(11) required
+NewClientPrice BigDecimal max(11)
+BankCommAmt BigDecimal max(7)
+NewBankCommAmt BigDecimal max(7)
+Spread BigDecimal max(7)
+NewSpread BigDecimal max(7)
+SpreadOverride String maxlength(1)
+NewSpreadOverride String maxlength(1)
+AccruedInt BigDecimal max(11)
+NewAccruedInt BigDecimal max(11)
+SettlementAmt BigDecimal max(11)
+NewSettlementAmt BigDecimal max(11)
+SettAcctNbr String maxlength(30) required
+NewSettAcctNbr String maxlength(30)
+SettCcy String maxlength(3) required
+SettCcyNew String maxlength(3) required
+TradeDate Instant required
+SettlementDate Instant required
+InstRemarks String maxlength(300) required
+CreatedBy String maxlength(8) required
+CreatedTs Instant
+UpdatedBy String maxlength(8)  
+UpdatedTs Instant
+UpdatedDate ZonedDateTime
+}
+
+
+service * with serviceClass
+dto all with mapstruct
+
+paginate FimCust,FimSettAcct with pagination
+    
