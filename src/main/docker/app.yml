@@ -1,18 +1,18 @@
 # This configuration is intended for development purpose, it's **your** responsibility to harden it for production
 version: '3.8'
 services:
-  springboot-app:
-    image: springboot
+  fim-app:
+    image: fim
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
       - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
       - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
-      - SPRING_DATASOURCE_URL=jdbc:sqlserver://springboot-mssql:1433;database=Springboot
-      - SPRING_LIQUIBASE_URL=jdbc:sqlserver://springboot-mssql:1433;database=Springboot
-      - JHIPSTER_SLEEP=60 # gives time for mssql server to start
-  springboot-mssql:
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://fim-mssql:1433;database=FIM
+      - SPRING_LIQUIBASE_URL=jdbc:sqlserver://fim-mssql:1433;database=FIM
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+  fim-mssql:
     image: mcr.microsoft.com/mssql/server:2019-CU15-ubuntu-20.04
     # volumes are not supported on macOS
     # volumes:
@@ -21,7 +21,7 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_PID=Express
       - SA_PASSWORD=yourStrong(!)Password
-      - MSSQL_DATABASE=Springboot
+      - MSSQL_DATABASE=FIM
       - MSSQL_SLEEP=60
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix

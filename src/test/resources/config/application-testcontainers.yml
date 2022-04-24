@@ -15,7 +15,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
-    url: jdbc:tc:sqlserver:2019-CU15-ubuntu-20.04://;database=Springboot?TC_TMPFS=/testtmpfs:rw
+    url: jdbc:tc:sqlserver:2019-CU15-ubuntu-20.04://;database=FIM?TC_TMPFS=/testtmpfs:rw
     username: SA
     password: yourStrong(!)Password
     hikari:
